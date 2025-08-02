@@ -55,11 +55,14 @@ public abstract class BitcoinJobManagerBase<TJob> : JobManagerBase<TJob>
 
     protected virtual object[] GetBlockTemplateParams()
     {
+        var coin = poolConfig.Template.As<BitcoinTemplate>();
+        var rules = coin.HasMwebSupport ? new[] {"segwit", "mweb"} : new[] {"segwit"};
+        
         return new object[]
         {
             new
             {
-                rules = new[] {"segwit"},
+                rules = rules,
             }
         };
     }

@@ -215,6 +215,9 @@ public partial class BitcoinTemplate : CoinTemplate
 
     [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
     public string BlockSerializer { get; set; }
+
+    [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public bool HasMwebSupport { get; set; }
 }
 
 public enum EquihashSubfamily
